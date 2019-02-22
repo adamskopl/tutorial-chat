@@ -9,12 +9,12 @@ function init(httpServer) {
 }
 
 function onConnection(socket) {
-  socket.on(d.events.message, onMessage);
+  socket.on(d.events.message, onMessage.bind(null, socket));
   console.warn(`socket connected`);
 }
 
-function onMessage(m) {
-  console.warn(`message received! ${m}`);
+function onMessage(socket, m) {
+  socket.broadcast.emit(d.events.message, m);
 }
 
 module.exports = {
