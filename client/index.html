@@ -8,6 +8,10 @@
 
 <div id="app">
   <input
+    v-model="inputValueNick"
+    :placeholder="inputPlaceholderNick"
+  >
+  <input
     v-model="inputValue"
     :placeholder="inputPlaceholder"
     @keydown.enter="onInputSubmit"
