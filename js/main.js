@@ -1,5 +1,6 @@
 const http = require('http');
 const express = require('express');
+const myIO = require('./io.js');
 const port = 3000;
 
 const app = express();
@@ -9,3 +10,4 @@ const httpServer = http.Server(app);
 httpServer.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
+myIO.init(httpServer);
