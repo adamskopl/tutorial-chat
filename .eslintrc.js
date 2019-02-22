@@ -1,12 +1,5 @@
 module.exports = {
   'extends': 'airbnb-base',
-  'settings': {
-    'import/resolver': {
-      'jspm': {
-        'moduleDirectory': 'jspm_packages'
-      }
-    }
-  },
   'rules': {
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
