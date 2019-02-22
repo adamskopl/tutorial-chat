@@ -1,31 +1,17 @@
-import { dictionary as d } from './dictionary.js';
-import { factoryMessage as fMessage } from './factories.js';
+import {} from './pageLogin.js';
+import {} from './pageChat.js';
 
 const app = new Vue({
   el: '#app',
   data: {
-    messages: [],
-    inputValue: '',
-    inputPlaceholder: d.text.inputPlaceholder,
-    inputValueNick: '',
-    inputPlaceholderNick: d.text.inputPlaceholderNick,
+    nick: '',
   },
   methods: {
-    onInputSubmit() {
-      this.messages.push(this.inputValue);
-      this.socket.emit(
-        d.events.message,
-        fMessage.create({
-          text: this.inputValue,
-          nick: this.inputValueNick,
-        }),
-      );
+    onNickChosen(nick) {
+      this.nick = nick;
     },
   },
   created() {
     this.socket = io('');
-    this.socket.on(d.events.message, (mObject) => {
-      this.messages.push(fMessage.toText(mObject));
-    });
   },
 });

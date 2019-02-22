@@ -7,18 +7,37 @@
 <script src="js/main.js" type="module"></script>
 
 <div id="app">
-  <input
-    v-model="inputValueNick"
-    :placeholder="inputPlaceholderNick"
-  >
-  <input
-    v-model="inputValue"
-    :placeholder="inputPlaceholder"
-    @keydown.enter="onInputSubmit"
-  >
-  <ul>
-    <li v-for="message in messages">
-      {{message}}
-    </li>
-  </ul>
+  <page-login
+    :socket="socket"
+    @nick-chosen="onNickChosen"
+  ></page-login>
+  <page-chat
+    :socket="socket"
+    :nick="nick"
+  ></page-chat>
 </div>
+
+<template id="pageLogin">
+  <div>
+    <input
+      v-model="inputValue"
+      :placeholder="inputPlaceholder"
+      @keydown.enter="onInputSubmit"
+    >
+  </div>
+</template>
+
+<template id="pageChat">
+  <div>
+    <input
+      v-model="inputValue"
+      :placeholder="inputPlaceholder"
+      @keydown.enter="onInputSubmit"
+    >
+    <ul>
+      <li v-for="message in messages">
+        {{message}}
+      </li>
+    </ul>
+  </div>
+</template>

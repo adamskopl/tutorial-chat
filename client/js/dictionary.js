@@ -3,7 +3,7 @@ const dictionary = {
     message: 'message',
   },
   text: {
-    inputPlaceholder: 'type a message..',
+    inputPlaceholderChat: 'type a message..',
     inputPlaceholderNick: 'type a nick..',
     nickAnonymous: '*anonymous*',
   },
